@@ -31,4 +31,4 @@ Ticketing system develop with Laravel Framework
    - `composer global require "laravel/installer"`
    - `laravel new ticketing --5.3.29`
  9. now you can open the browser and type `http://ticketing.app`
-10. check your version of Laravel `php artisan --version`. You must see `Laravel Framework version 5.3.29`
+ 10. check your version of Laravel `php artisan --version`. You must see `Laravel Framework version 5.3.29`
