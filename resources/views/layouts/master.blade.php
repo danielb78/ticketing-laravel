@@ -15,12 +15,14 @@
 @include('shared/navbar')
 
 <div class="container">
-    <div class="content">
-        @yield('content')
-    </div>
+    @yield('content')
 </div>
 
 <script src="{!! asset('js/app.js') !!}"></script>
-
+<script>
+    $(document).ready(function() {
+        $.material.init();
+    });
+</script>
 </body>
 </html>
