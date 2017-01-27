@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\TicketFormRequest;
 use App\Ticket;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class TicketsController extends Controller
 {
@@ -47,6 +48,8 @@ class TicketsController extends Controller
         ]);
 
         $ticket->save();
+
+        $this->sendEmail($slug);
 
         return redirect('/contact')->with('status', 'Your ticket has been created! Its unique id is: ' . $slug);
     }
@@ -115,5 +118,15 @@ class TicketsController extends Controller
         $ticket->delete();
 
         return redirect('/tickets')->with('status', "The ticket {$slug} has been deleted");
+    }
+
+    private function sendEmail($slug) {
+        $data = [
+            'ticket' => $slug
+        ];
+        Mail::send('email.ticket', $data, function($message) {
+            $message->from('no-reply@example.com', 'Daniel Laravel');
+            $message->to('boldan.daniel@gmail.com')->subject('There is a new ticket');
+        });
     }
 }
