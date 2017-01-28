@@ -41,6 +41,8 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'mana
         'as'   => 'admin.users.index',
         'uses' => 'UsersController@index',
     ]);
+    Route::get('users/{id}/edit', 'UsersController@edit');
+    Route::post('users/{id}/edit', 'UsersController@update');
 
     Route::get('roles', 'RolesController@index');
     Route::get('roles/create', 'RolesController@create');
