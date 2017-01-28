@@ -2,6 +2,11 @@
 @section('title', 'Home')
 @section('content')
     <div class="row banner">
+        @if (session('status'))
+            <div class="alert alert-danger">
+                {{ session('status') }}
+            </div>
+        @endif
         <div class="col-md-12">
             <h1 class="text-center margin-top-100 editContent">
                 Ticketing System

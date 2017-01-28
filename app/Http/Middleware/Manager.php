@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Illuminate\Support\Facades\Auth;
 
 class Manager
 {
@@ -15,6 +16,16 @@ class Manager
      */
     public function handle($request, Closure $next)
     {
-        return $next($request);
+        if(!Auth::check()) {
+            return redirect('users/login');
+        }
+
+        $user = Auth::user();
+
+        if ($user->isManager()) {
+            return $next($request);
+        }
+
+        return redirect('/')->with('status', 'You are not authorize to access that page');
     }
 }
