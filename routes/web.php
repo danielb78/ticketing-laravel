@@ -12,6 +12,7 @@
 */
 
 Route::get('/', 'PagesController@home');
+Route::get('/home', 'PagesController@home');
 Route::get('/about', 'PagesController@about');
 
 // Tickets resource
@@ -25,3 +26,7 @@ Route::post('/tickets/{slug}/delete', 'TicketsController@destroy');
 
 // Comments resource
 Route::post('/comment', 'CommentsController@newComment');
+
+// Users resource
+Route::get('users/register',  'Auth\RegisterController@showRegistrationForm');
+Route::post('users/register', 'Auth\RegisterController@register');
