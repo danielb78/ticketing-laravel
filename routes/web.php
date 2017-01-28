@@ -13,7 +13,6 @@
 
 // Static pages
 Route::get('/',      'PagesController@home');
-Route::get('home',  'PagesController@home');
 Route::get('about', 'PagesController@about');
 
 // Tickets resource
@@ -37,6 +36,8 @@ Route::post('users/login',    'Auth\LoginController@login');
 
 // Restricted area
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'manager'], function() {
+    Route::get('/', 'PagesController@home');
+
     Route::get('users', [
         'as'   => 'admin.users.index',
         'uses' => 'UsersController@index',

@@ -2,7 +2,8 @@
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -21,6 +22,9 @@
                         <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
                         @if (Auth::check())
+                            @role('manager')
+                                <li><a href="/admin">Admin</a></li>
+                            @endrole
                             <li><a href="/users/logout">Logout</a></li>
                         @else
                             <li><a href="/users/register">Register</a></li>
