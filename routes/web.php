@@ -36,6 +36,6 @@ Route::get('users/login',     'Auth\LoginController@showLoginForm');
 Route::post('users/login',    'Auth\LoginController@login');
 
 // Restricted area
-Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth'], function() {
+Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'manager'], function() {
     Route::get('users', 'UsersController@index');
 });
