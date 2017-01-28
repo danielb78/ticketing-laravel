@@ -14,11 +14,14 @@ class Ticket extends Model
         'user_id'
     ];
 
-    public function user() {
+    public function user()
+    {
         return $this->belongsTo('App\User');
     }
 
-    public function getTitle() {
-        return $this->title;
+    public function comments()
+    {
+        return $this->hasMany('App\Comment', 'post_id');
     }
+
 }

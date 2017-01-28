@@ -23,3 +23,5 @@ Route::post('/contact',               'TicketsController@store');
 Route::post('/tickets/{slug}/edit',   'TicketsController@update');
 Route::post('/tickets/{slug}/delete', 'TicketsController@destroy');
 
+// Comments resource
+Route::post('/comment', 'CommentsController@newComment');

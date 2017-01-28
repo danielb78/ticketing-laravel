@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Comment;
 use App\Http\Requests\TicketFormRequest;
 use App\Ticket;
 use Illuminate\Http\Request;
@@ -63,8 +64,9 @@ class TicketsController extends Controller
     public function show($slug)
     {
         $ticket = Ticket::whereSlug($slug)->first();
+        $comments = $ticket->comments()->get();
 
-        return view('tickets.show')->with('ticket', $ticket);
+        return view('tickets.show', compact('ticket', 'comments'));
     }
 
     /**
