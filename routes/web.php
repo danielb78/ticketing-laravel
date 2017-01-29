@@ -13,7 +13,9 @@
 
 // Static pages
 Route::get('/',      'PagesController@home');
-Route::get('about', 'PagesController@about');
+Route::get('about',  'PagesController@about');
+
+Route::get('blog',   'BlogController@index');
 
 // Tickets resource
 Route::get('tickets',                'TicketsController@index');
