@@ -16,6 +16,7 @@ Route::get('/',      'PagesController@home');
 Route::get('about',  'PagesController@about');
 
 Route::get('blog',   'BlogController@index');
+Route::get('blog/{slug}', 'BlogController@show');
 
 // Tickets resource
 Route::get('tickets',                'TicketsController@index');
